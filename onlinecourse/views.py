@@ -153,20 +153,22 @@ def show_exam_result(request, course_id, submission_id):
         }
     return render(request, 'onlinecourse/exam_result_bootstrap.html', context) 
 
-    #total_mark, mark = 0, 0
-    #for question in course.question_set.all():
-     #   total_mark += question.grade
-      #  if question.is_get_score(choices):
-       #     mark += question.grade
+  
     
-    #return render(
-     #   request,
-      #  'onlinecourse/exam_result_bootstrap.html',
-      #  {"course":course, "choices":choices,"mark":mark, 
-       #     "total_mark": total_mark, 
-        #    "submission": submission,
-         #   "grade": int((mark / total_mark) * 100) }
-    #)
+     #choices_list = []
+    #if submission.choices.all is not None:
+    #   for choice in submission.choices.all():
+     #      choices_list.append(choice.id)
+    #grade = 0
+    #total = 0
+    #for question in Question.objects.filter(course=course):
+     #   if question.is_get_score(choices_list):
+      #      grade += question.grade
+       # total += question.grade
+    #context = {}
+    #context['course'] = course
+    #context['selected_ids'] = choices_list
+    #context['grade'] = 100 * grade // total
             
         
 
