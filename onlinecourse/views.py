@@ -113,7 +113,7 @@ def enroll(request, course_id):
             
 def submit(request, course_id):
     user = request.user
-    enr = Enrollment.objects.get(user=user, course=course_id))
+    enr = Enrollment.objects.get(user=user, course=course_id)
     submission = Submission.objects.create(enrollment=enr)
     selected_choices = extract_answers(request)
     submission.choices.set(selected_choices)
@@ -136,17 +136,17 @@ def extract_answers(request):
 # <HINT> Create an exam result view to check if learner passed exam and show their question results and result for each question# you may implement it based on the following logic: # Get course and submission based on their ids
         # Get the selected choice ids from the submission record        # For each selected choice, check if it is a correct answer or not    # Calculate the total score
 def show_exam_result(request, course_id, submission_id):
-     course = Course.objects.get(id=course_id)
-     submission = Submission.objects.get(id=submission_id)
+    course = Course.objects.get(id=course_id)
+    submission = Submission.objects.get(id=submission_id)
     # course = get_object_or_404(Course, pk=course_id)
      #submission = get_object_or_404(Submission, pk=submission_id)
        
-     answers = submission.objects.all()
-     grade = 0.0
-     for answer in answers.choice_set:
+    answers = submission.objects.all()
+    grade = 0.0
+    for answer in answers.choice_set:
         if answer.is_correct:
             grade += answer.question.grade
-     context ={
+    context ={
         'course': course,
         'grade': grade,
         'submission': submission
