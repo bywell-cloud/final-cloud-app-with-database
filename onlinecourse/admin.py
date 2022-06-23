@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@bywell-cloud 
-codedoga
-/
-final-cloud-app-with-database
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-final-cloud-app-with-database/onlinecourse/admin.py /
-@codedoga
-codedoga lab3
-Latest commit 02fbbc7 on Apr 30
- History
- 1 contributor
-46 lines (33 sloc)  1.13 KB
-
 from django.contrib import admin
 # <HINT> Import any new Models here
 from .models import Course, Lesson, Instructor, Learner, Question, Choice, Submission
@@ -60,7 +32,7 @@ class LessonAdmin(admin.ModelAdmin):
     inlines = [QuestionInline]
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ['text']
+    list_display = ['question_text']
     inlines = [ChoiceInline]
 
 # <HINT> Register Question and Choice models here
